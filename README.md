@@ -1,4 +1,4 @@
-# SuperLista
+# 📜 SuperLista
 
 Aplicativo de listas de compras com recursos premium gratuitos.
 
