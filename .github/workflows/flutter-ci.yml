@@ -12,6 +12,67 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
+      # 3. Cache para otimizar builds
+      - name: Cache pub packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+            build/
+          key: ${{ runner.os }}-flutter-${{ hashFiles('pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
+      # 4. Instalar dependências
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 5. Verificação de formatação e análise
+      - name: Format check
+        run: dart format --set-exit-if-changed .
+
+      - name: Analyze code
+        run: flutter analyze
+
+      # 6. Preparar diretório temporário para Hive
+      - name: Prepare Hive temp directory
+        run: mkdir -p /tmp/hive_test
+
+      # 7. Rodar testes com cobertura
+      - name: Run tests with coverage
+        run: |
+          flutter test --coverage
+          sudo apt-get install lcov
+          genhtml coverage/lcov.info -o coverage/html
+
+      # 8. Upload do relatório de cobertura
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/html
+
+      # 9. Auditoria de dependências
+      - name: Check outdated dependencies
+        run: flutter pub outdated
+
+      - name: Security audit
+        run: flutter pub audit
+
+  golden-tests:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -23,20 +84,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze code
-        run: flutter analyze
-
-      - name: Run tests with coverage
-        run: |
-          flutter test --coverage
-          sudo apt-get install lcov
-          genhtml coverage/lcov.info -o coverage/html
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-report
-          path: coverage/html
-
-      - name: Check outdated dependencies
-        run: flutter pub outdated
+      # Atualiza goldens automaticamente em PRs
+      - name: Run golden tests
+        run: flutter test --update-goldens --tags golden
