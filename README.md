@@ -33,6 +33,7 @@ flutter run
 
 ## 📦 Estrutura do Projeto
 ```plaintext
+lib/
 ├── main.dart
 ├── core/
 │   ├── theme.dart
