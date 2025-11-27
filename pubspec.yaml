@@ -1,10 +1,10 @@
-name: super_lista_app
-description: "A new Flutter project."
+name: SuperLista
+description: "Aplicativo de listas de compras com recursos premium gratuitos."
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.9.2
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -15,6 +15,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   intl: ^0.20.0
+  path_provider: ^2.0.15
 
   cupertino_icons: ^1.0.8
 
