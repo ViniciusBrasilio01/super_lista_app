@@ -1,6 +1,6 @@
 name: SuperLista
-description: "Aplicativo de listas de compras com recursos premium gratuitos."
-publish_to: 'none'
+description: Aplicativo de listas de compras com recursos premium gratuitos.
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -11,18 +11,17 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  riverpod: ^3.0.3
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  intl: ^0.20.0
+  intl: ^0.20.2
   path_provider: ^2.0.15
-
-  cupertino_icons: ^1.0.8
+  uuid: ^4.5.2
+  provider: ^6.1.2
+  flutter_riverpod: ^3.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
   golden_toolkit: ^0.15.0
 
 flutter:
