@@ -48,15 +48,15 @@ jobs:
           sudo apt-get install lcov
           genhtml coverage/lcov.info -o coverage/html
 
-      - name: Upload coverage report artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: coverage/html
+          path: coverage/
 
       # ✅ Integração com Codecov
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: coverage/lcov.info
           flags: unittests
