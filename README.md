@@ -1,8 +1,6 @@
 # 📜 SuperLista
 
-[![CI Status](https://github.com/ViniciusBrasilio01/super_lista_app/actions/workflows/flutter-ci](https://github.com/ViniciusBrasilio01/super_lista_app/actions)
-![Coverage Status](https://codecov.io/gh/ViniciusBrasilio01/super_lista_app/branch/main/graph/badge.svg?token=<TOKENo/gh/ViniciusBrasilio01/super_lista_app)
-
+[![CI Status](https://github.com/ViniciusBrasilio01/super_lista_app/actions/workflows/flutter-ci.yml/badge.svg)](https://github.com/ViniciusBrasilio01/super_lista_app/actions/workflows/fluttererage Status](https://codecov.io/gh/ViniciusBrasilio01/super_lista_app/branch/main/graph/badge.svg?token=SEU_TOKEN)](https://codecov.io/gh/ViniciusBrasilio01/supervo de listas de compras com recursos premium gratuitos.
 
 Aplicativo de listas de compras com recursos premium gratuitos.
 
