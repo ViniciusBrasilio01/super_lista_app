@@ -1,6 +1,8 @@
-https://codecov.io/gh/ViniciusBrasilio01/super_lista_app/branch/main/graph/badge.svg?token=<eeee6b9f-c97e-4479-bf9e-ceac1e7f9f4e>(https://codecov.io/gh/ViniciusBrasilio01/super_lista_app)
-
 # 📜 SuperLista
+
+[![CI Status](https://github.com/ViniciusBrasilio01/super_lista_app/actions/workflows/flutter-ci](https://github.com/ViniciusBrasilio01/super_lista_app/actions)
+[![Coverage Status](https://codecov.io/gh/ViniciusBrasilio01/super_lista_app/branch/main/graph/badge.svg?token=<TOKENo/gh/ViniciusBrasilio01/super_lista_app)]
+
 
 Aplicativo de listas de compras com recursos premium gratuitos.
 
