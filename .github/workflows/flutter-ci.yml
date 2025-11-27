@@ -7,6 +7,10 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -37,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      # Formatar código (atual — via dart)
+      # Formatar código
       - name: Format code
         run: dart format --output=none --set-exit-if-changed .
 
@@ -49,7 +53,7 @@ jobs:
       - name: Run tests
         run: flutter test --coverage
 
-      # Upload do coverage como artifact (v4, obrigatório)
+      # Upload do coverage como artifact
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
@@ -57,9 +61,10 @@ jobs:
           path: coverage/
 
       # Enviar cobertura ao Codecov
-      - name: Upload coverage reports to Codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
+          token: ${{ secrets.CODECOV_TOKEN }} # OBRIGATÓRIO no v4
           files: coverage/lcov.info
           flags: unittests
           name: flutter-ci
