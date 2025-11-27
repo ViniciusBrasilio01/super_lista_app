@@ -58,7 +58,7 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.eeee6b9f-c97e-4479-bf9e-ceac1e7f9f4e }}
           files: coverage/lcov.info
           flags: unittests
           name: flutter-ci
