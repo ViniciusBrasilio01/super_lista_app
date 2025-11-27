@@ -1,4 +1,4 @@
-
+import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:SuperLista/features/list/data/list_repository.dart';
@@ -6,10 +6,21 @@ import 'package:SuperLista/features/list/domain/list_model.dart';
 
 void main() {
   late ListRepository repo;
+  late Directory tempDir;
 
-  setUp(() async {
-    Hive.init('./test_hive');
+  setUpAll(() async {
+    // Cria diretório temporário para evitar conflitos
+    tempDir = await Directory.systemTemp.createTemp('hive_test');
+    Hive.init(tempDir.path);
     await Hive.openBox('listas');
+  });
+
+  tearDownAll(() async {
+    await Hive.close();
+    await tempDir.delete(recursive: true);
+  });
+
+  setUp(() {
     repo = ListRepository();
     repo.box.clear();
   });

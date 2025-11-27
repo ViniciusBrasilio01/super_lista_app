@@ -1,0 +1,13 @@
+
+# Arquivo: dart_test.yaml
+# Configuração para testes Flutter, incluindo golden tests
+
+tags:
+  golden:
+    description: "Testes visuais que comparam widgets com imagens de referência (goldens)."
+
+# Timeout padrão para testes (golden tests podem demorar mais)
+timeout: 2x
+
+# Opções globais para testes
+test_on: "vm" # Executa testes no Dart VM
