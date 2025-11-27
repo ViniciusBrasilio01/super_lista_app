@@ -56,7 +56,7 @@ jobs:
 
       # ✅ Integração com Codecov
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v3
         with:
           files: coverage/lcov.info
           flags: unittests
