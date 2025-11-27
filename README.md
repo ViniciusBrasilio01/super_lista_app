@@ -5,7 +5,7 @@ Aplicativo de listas de compras com recursos premium gratuitos.
 ## 🎯 Objetivo
 Facilitar a criação, organização e compartilhamento de listas de compras, oferecendo funcionalidades avançadas sem custo.
 
-## 🚀 Tecnologias
+## 👨‍💻 Tecnologias
 - Flutter 3.x
 - Riverpod (gerenciamento de estado)
 - Hive (persistência offline)
@@ -23,7 +23,7 @@ Facilitar a criação, organização e compartilhamento de listas de compras, of
   - Widget na tela inicial
   - Suporte prioritário
 
-## 📦 Instalação
+## ⚙️ Instalação
 ```bash
 git clone https://github.com/seuusuario/superlista.git
 cd superlista
